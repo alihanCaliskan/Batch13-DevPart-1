@@ -1,0 +1,42 @@
+
+SELECT COUNT(id), name FROM Account GROUP BY name HAVING COUNT(id) >1
+
+SELECT sum(amount), stagename FROM opportunity WHERE isclosed = false GROUP BY stagename 
+
+select sum(amount), stagename from opportunity group by stagename// sum and group by 
+
+select count(name), leadsource from lead group by leadsource //group by
+
+select id, name, subject__c, salesforce_project__r.project_name__c, salesforce_project__r.status__c from salesforce_ticket__c // child to parent
+
+select id, name, (select lastname from contacts) from account //parent to child
+
+select name, project_name__c,(select subject__c, priority__c, status__c from salesforce_tickets__r) from salesforce_project__c // parent to child
+
+SELECT name,    Account.Owner.FirstName , phone, mailingcity FROM contact 
+
+SELECT id, name, phone FROM Account
+
+select id, name, Project_Name__c, Status__c, Description__c from Salesforce_Project__c
+
+SELECT id, name, mailingcity FROM contact WHERE mailingcity = 'paris'
+
+select id, name, mailingcity FROM contact WHERE name LIKE 'a%'
+
+SELECT id, name, phone FROM Account ORDER BY name desc
+
+SELECT id, name, phone, createddate  FROM Account ORDER BY createddate desc limit 5
+
+SELECT Id, Name, Type, Industry, phone FROM Account WHERE Phone != null
+
+SELECT Id, Name, Type, Industry, phone FROM Account WHERE Industry != 'energy' LIMIT 1
+
+select id, name, Phone, accountNumber FROM Account WHERE phone != null AND accountNumber != null
+
+select id, name, Phone, website, accountNumber FROM Account WHERE (phone != null OR website != null) AND accountNumber != null
+
+select id, name, phone,AnnualRevenue, accountnumber, website from account where annualrevenue > 3000000
+
+select id, name, phone,AnnualRevenue, accountnumber, website from account where createddate > last_week
+
+select id, name, phone, mailingcity from contact where mailingcity in ('Paris', 'burlington', 'lawrence')
