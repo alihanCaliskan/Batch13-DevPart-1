@@ -53,7 +53,7 @@ public class SoqlDemo {
     
     }
 
-    public static void parentToChildSOQL1(){
+    public static void parentToChild_SOQL1(){
         List<account> listAcount = [SELECT name, type, annualrevenue, (SELECT name, amount from OpportunitieS where stagename = 'Closed Won') FROM Account WHERE type = 'customer - direct'];
         for (account eachAcc : listAcount){
             System.debug('account name is ' + eachAcc.name + ', its annual revenue is ' + eachAcc.AnnualRevenue);
@@ -93,7 +93,8 @@ public class SoqlDemo {
              }
              system.debug('Project name is ' + eachSP.Project_Name__c + ', total tickets ' + totalTickets + ', hp tickets ' + highPriorityTickets);
         }
-      }
+      
+    }
    
 
 }
